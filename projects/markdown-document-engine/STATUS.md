@@ -15,12 +15,14 @@
 - Stable logical identity separated from rendered numbering/position.
 - Established Markdown extension ecosystems reviewed (Pandoc, Quarto, MyST).
 - Pandoc/Quarto ecosystem compatibility is now a formal requirement, not only an architectural convention.
+- Native-first Google Docs augmentation is now a formal requirement: reuse native headings, TOC, links, bookmarks, and related primitives where adequate; implement only documented gaps.
 - Pandoc/Quarto-compatible authoring syntax adopted in ADR-0001:
   - Pandoc attributes for IDs/classes/metadata;
   - Quarto typed prefixes and `@...` cross-references for standard object classes;
   - Pandoc/Quarto fenced Divs for richer semantic blocks;
   - Pandoc-style paragraph anchors plus internal links for paragraph references.
 - Analytical-indexing knowledge baseline documented in RES-002, including current AsciiDoc, Sphinx/MyST, Quarto core, and Quarto-extension approaches.
+- Focused Google Docs capability matrix documented in RES-003 for native headings/TOC, hierarchical numbering, internal navigation, and object-based analytical indexes.
 - Concept-level analytical indexing is tracked as roadmap direction RD-001 rather than prematurely committed as a v0.1 requirement.
 - Initial conceptual pipeline documented.
 - Renderer-independent IR identified as an open design question, not an accepted decision.
@@ -28,8 +30,8 @@
 ## In progress
 - Refine the exact Pandoc/Quarto subset supported in v0.1.
 - Refine Markdown authoring and compilation workflow requirements.
-- Define editorial style-profile requirements.
-- Define acceptance criteria for headings, numbering, TOC, lists, links, tables, figures, captions, references, indexes, and formatting.
+- Define only the renderer/style requirements directly needed by the focused v0.1 structural scope.
+- Define acceptance criteria for headings, hierarchical numbering, TOC, internal targets/references, and object-based indexes.
 - Investigate Google Docs / Apps Script capabilities and constraints for headings, bookmarks/anchors, TOC, references, and generated indexes.
 - Decide the minimal implementation architecture for the first prototype.
 
@@ -37,14 +39,13 @@
 1. Define REQ-003 for Markdown authoring and compilation workflow.
 2. Define REQ-004 for Google Docs rendering and editorial formatting.
 3. Define validation/diagnostics requirements, including structural and cross-reference validation.
-4. Create RES notes for Google Docs API/Apps Script behavior relevant to headings, lists, TOC, bookmarks, anchors, and styles.
-5. Review RFC-001 on a renderer-independent intermediate representation.
-6. Build a minimal lab prototype for headings, hierarchical numbering, and stable internal references.
-7. Add fixture-based tests before promoting code into `src/`.
+4. Build a targeted lab prototype to validate native heading numbering, native TOC behavior/automation, and native-backed internal targets.
+5. Review RFC-001 on a renderer-independent intermediate representation only as needed by the focused prototype.
+6. Add fixture-based tests before promoting code into `src/`.
 
 ## Open decisions
 - Pure Apps Script vs external compiler + Apps Script renderer vs hybrid.
-- Native Google Docs TOC vs engine-generated TOC.
+- Exact native Google Docs TOC automation workflow; custom TOC is now fallback-only under REQ-MDE-GDOC-004.
 - Exact supported Pandoc/Quarto feature subset for v0.1.
 - Subject/concept-index syntax and semantics beyond the v0.1 object-index baseline; RES-002 identifies quarto-index as a high-priority candidate for future evaluation.
 - Whether v0.1 requires a formal intermediate representation.
