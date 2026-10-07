@@ -2,6 +2,8 @@
 
 Use this directory for capability research, comparisons, API investigations, experiments, and evidence.
 
+External source artefacts and reference material that underpin this research belong under [sources/](sources/). The `sources/` area stores evidence and provenance, not project conclusions or accepted decisions.
+
 Current research:
 
 - [RES-001 - Established Markdown Extensions for Structured Authoring and Cross-References.md](RES-001%20-%20Established%20Markdown%20Extensions%20for%20Structured%20Authoring%20and%20Cross-References.md) — compares Pandoc, Quarto, and MyST syntax and supports ADR-0001.
