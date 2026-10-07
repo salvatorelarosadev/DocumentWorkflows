@@ -13,6 +13,7 @@ Validate this repository as the reference documentation and engineering standard
 - Reusable documentation hierarchy adopted and extended from the model proven in the personal-KM project.
 - REQ, ARCH, ADR, RES, RFC, EP, RUN, and NOTE document classes defined.
 - Repository-level status, roadmap, contribution, security, agent, and changelog documents introduced.
+- Repository standard evolved to v0.3.0-draft with Roadmap Directions (Committed / Candidate / Exploratory) for prospective ideas linked to RES knowledge baselines and future RFC/EP triggers.
 - Public-safe policy established.
 - First subproject scaffolded: Markdown Document Engine.
 
