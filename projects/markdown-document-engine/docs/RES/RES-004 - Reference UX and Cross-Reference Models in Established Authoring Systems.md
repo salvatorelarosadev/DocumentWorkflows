@@ -200,7 +200,7 @@ The following issues are easy to overlook and should be requirements rather than
 4. **Insertion point preservation** — a modal/browser must not lose the target cursor location.
 5. **Multiple references** — preserve structure rather than flattening to text.
 6. **Label vs prefix vs numbering series** — do not conflate these concepts.
-7. **Paragraph titles** — ordinary paragraphs need optional short reference titles if title-bearing reference modes are used.
+7. **Paragraph/text-fragment references** — this capability is intentionally deferred from v0.1 and tracked in ROADMAP RD-002; the immediate workaround is to use a one-cell table for a standalone formally referenceable text block.
 8. **Object Browser vs generated index** — one is an authoring UI, the other is rendered document content.
 9. **Title edits** — must not silently rename IDs.
 10. **UI language vs document language** — English MDE UI must not prevent Italian or other document labels.
@@ -245,3 +245,30 @@ It does not yet choose:
 - the exact Google Docs bookmark/named-range architecture;
 - exact source syntax for reference rendering modes beyond established Quarto conventions;
 - advanced multi-reference compression rules.
+
+
+## 9. Scope refinement after initial research
+
+Following the first requirement pass, the v0.1 object model was intentionally narrowed to:
+
+- sections/headings;
+- figures;
+- tables.
+
+Figures and tables use separate document-global progressive numbering series, following the default Word-like model:
+
+```text
+Figure 1
+Figure 2
+Figure 3
+
+Table 1
+Table 2
+Table 3
+```
+
+Numbering does not restart by chapter or section in v0.1.
+
+Direct references to ordinary body paragraphs or arbitrary sequential text fragments are deferred to ROADMAP RD-002. This is not yet an RFC because the project does not have enough evidence to compare concrete semantic and syntax alternatives.
+
+For the immediate use case, a one-cell table can serve as a formally referenceable standalone text block while remaining inside the supported table-reference model.

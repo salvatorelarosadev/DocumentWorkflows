@@ -10,7 +10,7 @@
 - Google Docs selected as the first renderer and immediate problem context.
 - Manual section numbering excluded from canonical source.
 - Initial core requirements baseline drafted.
-- Referenceable-object and cross-reference requirements added for sections/headings, paragraphs, figures, and tables.
+- Referenceable-object and cross-reference requirements added for sections/headings, figures, and tables; direct paragraph/text-fragment references are deferred from v0.1.
 - Generated index requirements added; the v0.1 baseline is now explicitly object-centric and derived from the referenceable-object registry.
 - Stable logical identity separated from rendered numbering/position.
 - Established Markdown extension ecosystems reviewed (Pandoc, Quarto, MyST).
@@ -29,6 +29,8 @@
 - Google Docs Structural Spike 001 manually validated with all planned checks passing: native heading semantics, hierarchical numbering, idempotence, native TOC compatibility/navigation, hierarchy validation, and NamedRange/Bookmark target persistence.
 - REQ-003 — Heading Numbering Workflow drafted for one-shot numbering, automatic ON/OFF reconciliation, removal behavior, and English UI.
 - REQ-004 — Reference Object Interaction and Cross-Reference Insertion drafted for the context-aware Object Inspector, formal objects, captions, managed labels, reference rendering modes, Object Browser, and multi-reference insertion.
+- Global document-wide figure and table numbering adopted for v0.1: one progressive series for figures and one for tables, without chapter/section resets.
+- Direct paragraph/arbitrary text-fragment references moved to exploratory roadmap direction RD-002.
 - RES-004 documents the reference UX baseline from Microsoft Word, Quarto, Sphinx, and LaTeX cleveref.
 
 ## In progress
@@ -42,7 +44,7 @@
 ## Next actions
 1. Run `lab/google-docs-live-numbering-spike-001b/MANUAL_TEST.md`.
 2. Record the live-numbering evidence and refine REQ-003 if needed.
-3. Prototype the context-aware Object Inspector for section, paragraph, table, and inline-image selections.
+3. Prototype the context-aware Object Inspector for section, table, and inline-image selections.
 4. Prototype formalization of table/figure objects with mandatory unique IDs and caption metadata.
 5. Prototype the Object Browser with type filters, search, multi-selection, and insertion at a preserved cursor location.
 6. Build the minimal Pandoc/Quarto-compatible Markdown → native Google Docs structural compilation path using the same object model.
@@ -56,7 +58,7 @@
 - Subject/concept-index syntax and semantics beyond the v0.1 object-index baseline; RES-002 identifies quarto-index as a high-priority candidate for future evaluation.
 - Whether v0.1 requires a formal intermediate representation.
 - How referenceable objects map to Google Docs bookmarks/anchors.
-- How paragraph references should render when paragraphs have no visible numbering and no explicit link text.
+- Future paragraph/text-fragment reference semantics and syntax are deferred to ROADMAP RD-002.
 - Whether generated indexes are rebuilt or incrementally synchronized.
 - Cross-document references (not currently in v0.1 baseline).
 

@@ -19,7 +19,7 @@ The visual interface and the textual syntax must operate on the same semantic ob
 
 For this requirement set:
 
-- **object type** — semantic class such as section, paragraph, figure, or table;
+- **object type** — semantic class such as section, figure, or table;
 - **logical ID** — stable document-global identifier such as `fig-platform-ecosystem`;
 - **declaration notation** — source notation such as `#fig-platform-ecosystem`;
 - **reference notation** — source notation such as `@fig-platform-ecosystem`;
@@ -39,9 +39,10 @@ The leading `#` and `@` characters are notation operators and are not part of th
 The initial visual reference workflow must support at minimum:
 
 - sections/headings;
-- body paragraphs;
 - figures represented by supported image objects;
 - tables.
+
+Direct formal references to ordinary body paragraphs or arbitrary sequential text fragments are outside the v0.1 baseline and are tracked prospectively in ROADMAP RD-002.
 
 Each formal object must participate in the same logical identity and cross-reference model.
 
@@ -75,7 +76,6 @@ When a user formalizes an object through the visual interface, MDE must propose 
 The suggested ID should be derived from the object type and available title/caption context and should follow the accepted Quarto-compatible typed-prefix convention where applicable, for example:
 
 - `sec-methodology`;
-- `par-key-finding`;
 - `fig-platform-ecosystem`;
 - `tbl-market-comparison`.
 
@@ -114,7 +114,6 @@ The MDE sidebar must include a context-aware **Selected object** area that inspe
 At minimum the inspector must recognize:
 
 - a native heading/section;
-- a supported body paragraph;
 - a table or selection inside a table;
 - a supported inline image/figure.
 
@@ -133,14 +132,6 @@ For a table or figure, relevant actions may include:
 - create/edit caption metadata;
 - create/edit logical ID;
 - choose display label;
-- copy `@id`.
-
-For a body paragraph, relevant actions may include:
-
-- formalize paragraph;
-- define optional short reference title;
-- choose display label;
-- create/edit logical ID;
 - copy `@id`.
 
 ---
@@ -180,6 +171,13 @@ or, with the label suppressed:
 `3 — Platform ecosystem`
 
 The number must be derived from the current document state rather than manually stored as authoritative text.
+
+Figures and tables must use separate document-global progressive numbering series in v0.1:
+
+- figures: `Figure 1`, `Figure 2`, `Figure 3`, ...;
+- tables: `Table 1`, `Table 2`, `Table 3`, ....
+
+The figure/table number must not restart by chapter or section in the v0.1 baseline.
 
 ---
 
@@ -238,11 +236,13 @@ Mature authoring systems distinguish caption titles from inline reference prefix
 
 Changing a display label or inline reference prefix must not, by itself, create a new numbering series.
 
-The default v0.1 numbering logic must remain tied to semantic object type or another explicit numbering-series configuration, not merely to visible label text.
+The v0.1 baseline must use one global numbering series for figures and one global numbering series for tables across the whole document.
+
+The series are tied to semantic object type, not to visible label text.
 
 **Notes**
 
-Support for custom independent numbering series may be added later, but is not implied by creating a synonym or abbreviation such as `Figure` → `Fig.`.
+Changing `Figure` to `Fig.` must not create a second figure counter. Chapter/section-scoped figure or table numbering is outside the v0.1 baseline.
 
 ---
 
@@ -286,8 +286,7 @@ For example:
 
 - figures → label + number;
 - tables → label + number;
-- sections → label + number + title;
-- paragraphs → number only.
+- sections → label + number + title.
 
 The exact defaults remain configurable.
 
@@ -335,7 +334,7 @@ Each browser row must expose enough information to identify the target unambiguo
 
 - object type;
 - current number when available;
-- title/caption or reference title;
+- title/caption;
 - logical ID.
 
 A display label may also be shown where useful.
@@ -348,7 +347,7 @@ A display label may also be shown where useful.
 
 The Object Browser must support:
 
-- filtering by object type, including at minimum sections, paragraphs, figures, and tables;
+- filtering by object type, including at minimum sections, figures, and tables;
 - text search across logical ID and title/caption;
 - deterministic ordering, with document order as the default.
 
@@ -431,8 +430,7 @@ This requirement complements REQ-MDE-REF-008.
 **Formal requirement**
 
 - sections derive their title from the native heading text;
-- formal figures and tables must have a human-facing title/caption text;
-- formal body paragraphs may define an optional short reference title.
+- formal figures and tables must have a human-facing title/caption text.
 
 If a rendering mode requires a title and the target has none, MDE must request one or use a documented fallback rather than silently generating misleading text.
 
@@ -447,6 +445,9 @@ This requirement set does not yet define:
 - the final Google Docs bookmark/named-range mapping;
 - exact Markdown syntax for non-standard rendering-mode overrides;
 - advanced range compression such as `Figures 2–5`;
-- custom user-defined semantic object types beyond the v0.1 set.
+- custom user-defined semantic object types beyond the v0.1 set;
+- direct formal references to ordinary body paragraphs or arbitrary sequential text fragments, tracked in ROADMAP RD-002.
+
+For the immediate v0.1 use case, an author who needs a formally referenceable standalone text block may place that text in a one-cell table and use the ordinary table-reference workflow.
 
 Those topics require separate research or design decisions.
