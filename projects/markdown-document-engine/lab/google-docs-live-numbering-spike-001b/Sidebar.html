@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 13px; line-height: 1.45; margin: 16px; color: #202124; }
+    h2 { font-size: 16px; margin: 0 0 12px 0; }
+    .status { border: 1px solid #dadce0; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+    .label { font-weight: 700; }
+    .meta { color: #5f6368; font-size: 12px; margin-top: 6px; }
+    button { margin: 4px 4px 4px 0; padding: 7px 10px; }
+    .error { color: #b3261e; }
+  </style>
+</head>
+<body>
+  <h2>MDE automatic numbering</h2>
+  <div class="status">
+    <div><span class="label">State:</span> <span id="state">Checking…</span></div>
+    <div id="message" class="meta"></div>
+    <div id="checked" class="meta"></div>
+  </div>
+  <button onclick="checkNow()">Check now</button>
+  <button id="toggle" onclick="toggleAutomatic()">Turn off</button>
+  <p class="meta">
+    While this sidebar is open, MDE checks the heading structure every 2.5 seconds.
+    It reconciles numbering only when the heading structure changes.
+  </p>
+  <script>
+    var enabled = false;
+    var POLL_MS = 2500;
+
+    function render(result) {
+      enabled = Boolean(result && result.enabled);
+      document.getElementById('state').textContent = enabled ? 'ON' : 'OFF';
+      document.getElementById('toggle').textContent = enabled ? 'Turn off' : 'Turn on';
+      var message = document.getElementById('message');
+      message.className = result && result.error ? 'meta error' : 'meta';
+      message.textContent = result && result.message ? result.message : '';
+      document.getElementById('checked').textContent =
+          'Last check: ' + new Date().toLocaleTimeString();
+    }
+
+    function renderFailure(error) {
+      render({
+        enabled: enabled,
+        error: true,
+        message: error && error.message ? error.message : String(error)
+      });
+    }
+
+    function refreshState() {
+      google.script.run.withSuccessHandler(render)
+          .withFailureHandler(renderFailure)
+          .mdeGetAutomaticNumberingState();
+    }
+
+    function checkNow() {
+      google.script.run.withSuccessHandler(render)
+          .withFailureHandler(renderFailure)
+          .mdeAutoNumberingTick();
+    }
+
+    function toggleAutomatic() {
+      google.script.run.withSuccessHandler(render)
+          .withFailureHandler(renderFailure)
+          .mdeSetAutomaticNumberingEnabled(!enabled);
+    }
+
+    function poll() {
+      google.script.run.withSuccessHandler(render)
+          .withFailureHandler(renderFailure)
+          .mdeAutoNumberingTick();
+    }
+
+    refreshState();
+    setInterval(poll, POLL_MS);
+  </script>
+</body>
+</html>

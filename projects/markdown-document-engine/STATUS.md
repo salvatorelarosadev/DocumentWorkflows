@@ -27,6 +27,7 @@
 - Initial conceptual pipeline documented.
 - Renderer-independent IR identified as an open design question, not an accepted decision.
 - Google Docs Structural Spike 001 manually validated with all planned checks passing: native heading semantics, hierarchical numbering, idempotence, native TOC compatibility/navigation, hierarchy validation, and NamedRange/Bookmark target persistence.
+- REQ-003 — Heading Numbering Workflow drafted for one-shot numbering, automatic ON/OFF reconciliation, removal behavior, and English UI.
 
 ## In progress
 - Refine the exact Pandoc/Quarto subset supported in v0.1.
@@ -34,16 +35,16 @@
 - Define only the renderer/style requirements directly needed by the focused v0.1 structural scope.
 - Define acceptance criteria for headings, hierarchical numbering, TOC, internal targets/references, and object-based indexes.
 - Investigate Google Docs / Apps Script capabilities and constraints for headings, bookmarks/anchors, TOC, references, and generated indexes.
-- Use the successful Structural Spike 001 evidence to design the next minimal Markdown-to-native-Docs compilation spike.
+- Validate Live Numbering Spike 001b: one-shot numbering plus automatic reconciliation ON/OFF with an English Google Docs UI.
 
 ## Next actions
-1. Define REQ-003 for Markdown authoring and compilation workflow.
-2. Define REQ-004 for Google Docs rendering and editorial formatting.
-3. Define validation/diagnostics requirements, including structural and cross-reference validation.
+1. Run `lab/google-docs-live-numbering-spike-001b/MANUAL_TEST.md`.
+2. Record the live-numbering evidence and refine REQ-003 if needed.
+3. Define the broader Markdown authoring/compilation workflow requirements after the numbering interaction is validated.
 4. Build Structural Spike 002: minimal Pandoc/Quarto-compatible Markdown headings + stable IDs → native Google Docs headings + hierarchical numbering + target mapping.
-5. Keep native TOC insertion/refresh manual in Spike 002 unless automation is required by the compilation test.
+5. Keep native TOC insertion/refresh native-first and automate only where the workflow requires it.
 6. After Spike 002, prototype the first object-based analytical index from the semantic object registry.
-7. Review RFC-001 on a renderer-independent intermediate representation only as required by these experiments.
+7. Review RFC-001 only as required by experimental evidence.
 8. Add fixture-based tests before promoting code into `src/`.
 
 ## Open decisions
