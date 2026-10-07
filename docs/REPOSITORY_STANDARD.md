@@ -1,7 +1,7 @@
 # Repository Organization and Engineering Standard
 
 **Status:** Draft standard under active validation  
-**Standard version:** 0.2.0-draft  
+**Standard version:** 0.3.0-draft  
 **Last updated:** 2026-10-07  
 **Scope:** DocumentWorkflows and future repositories that adopt this model
 
@@ -284,6 +284,38 @@ rather than:
 - issue-level assignments;
 - daily status;
 - guaranteed delivery dates unless the project explicitly manages commitments that way.
+
+### Roadmap directions
+
+Important prospective ideas should be tracked as explicit **Roadmap Directions** rather than being left only in notes, open architecture questions, or chat history.
+
+A roadmap direction should normally contain:
+
+- a stable direction identifier when useful, for example `RD-001`;
+- objective / target end state;
+- why the direction matters;
+- current maturity;
+- links to the current requirement baseline;
+- links to relevant RES knowledge baselines;
+- the next decision trigger;
+- the expected promotion path into RFC or EP when design work becomes timely.
+
+Recommended maturity states:
+
+- **Committed** — the capability is part of the intended delivery path, even if implementation details remain open;
+- **Candidate** — the direction is intentionally being preserved and is likely to be pursued, but requires validation before commitment;
+- **Exploratory** — strategically interesting and worth retaining, but not yet sufficiently validated.
+
+Roadmap directions are not requirements and are not accepted architecture.
+
+They answer:
+
+> Where might or should the project evolve next, and what would cause us to make that direction concrete?
+
+When a direction becomes ready for design:
+
+- use an **RFC** if the main need is to choose a significant design or syntax;
+- use an **EP** if the direction has become a large, multi-phase program with several dependent decisions.
 
 ### Change frequency
 
@@ -1510,6 +1542,15 @@ The long-term goal is a reusable baseline, not forced uniformity.
 This section records the evolution of the repository standard itself.
 
 It is intentionally separate from the product `CHANGELOG.md`.
+
+## 0.3.0-draft — 2026-10-07
+
+### Added
+
+- Added Roadmap Directions as the standard mechanism for preserving prospective evolution without prematurely converting it into requirements or architecture.
+- Added `Committed`, `Candidate`, and `Exploratory` maturity states for roadmap directions.
+- Added guidance linking roadmap directions to RES knowledge baselines and future RFC/EP promotion.
+- Added the concept of a **next decision trigger** so future ideas state when design work should begin rather than remaining indefinitely open.
 
 ## 0.2.0-draft — 2026-10-07
 
