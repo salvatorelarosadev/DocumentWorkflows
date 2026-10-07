@@ -28,7 +28,7 @@ See [STATUS.md](STATUS.md) for the current repository state.
 - [STATUS.md](STATUS.md) — current operational snapshot.
 - [ROADMAP.md](ROADMAP.md) — intended evolution.
 - [CHANGELOG.md](CHANGELOG.md) — released and user-visible changes.
-- [Repository documentation standard](docs/REPOSITORY_STANDARD.md) — reusable model being validated here.
+- [Repository organization and engineering manual](docs/REPOSITORY_STANDARD.md) — canonical explanation of the repository model, rationale for files/folders, documentation lifecycle, governance rules, and evolution of the standard itself.
 
 ### Collaboration and governance
 - [CONTRIBUTING.md](CONTRIBUTING.md)
@@ -96,6 +96,8 @@ DocumentWorkflows/
 │   └── documentation/
 └── .github/
 ```
+
+The purpose and boundaries of each file and directory are documented in the [repository organization and engineering manual](docs/REPOSITORY_STANDARD.md).
 
 ## License
 
