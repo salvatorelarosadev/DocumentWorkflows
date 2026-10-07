@@ -9,9 +9,9 @@ Requirements use:
 
 Current baseline:
 
-The requirement baseline explicitly adopts **Pandoc/Quarto compatibility as a product requirement**: established syntax must be reused where it adequately represents the required semantics, and project-specific syntax is an exception that requires justification.
+The requirement baseline explicitly adopts **Pandoc/Quarto compatibility as a product requirement** on the source side and **native-first Google Docs augmentation** on the renderer side: established syntax and native document capabilities must be reused where they adequately represent the required semantics, and custom behavior is reserved for documented gaps.
 
-- [REQ-001 - Scope and Core Requirements.md](REQ-001%20-%20Scope%20and%20Core%20Requirements.md) — scope, Markdown source, heading hierarchy, numbering, Google Docs target, TOC, repeatability, public-safe configuration, extensibility.
+- [REQ-001 - Scope and Core Requirements.md](REQ-001%20-%20Scope%20and%20Core%20Requirements.md) — scope, Pandoc/Quarto source compatibility, native-first Google Docs augmentation, focused v0.1 scope, heading hierarchy, numbering, TOC, repeatability, public-safe configuration, extensibility.
 - [REQ-002 - Referenceable Objects Cross-References and Generated Indexes.md](REQ-002%20-%20Referenceable%20Objects%20Cross-References%20and%20Generated%20Indexes.md) — stable object identity, paragraph/section/figure/table references, cross-reference integrity, and the v0.1 object-based analytical-index baseline; richer concept-level subject indexing is tracked prospectively in ROADMAP RD-001 and RES-002.
 
 Do not introduce architecture decisions into requirements unless a specific implementation constraint is itself approved as a requirement.
