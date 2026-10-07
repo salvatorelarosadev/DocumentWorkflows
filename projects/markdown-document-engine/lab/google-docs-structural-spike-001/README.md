@@ -125,3 +125,10 @@ Spike 001 is successful if:
 - native TOC entries reflect the numbered headings and remain navigable;
 - NamedRanges and Bookmarks survive the manual edit scenarios defined in `MANUAL_TEST.md`;
 - the results are strong enough to decide the next architecture experiment.
+
+
+## Related project material
+
+- [REQ-001 — Scope and Core Requirements](../../docs/REQ/REQ-001%20-%20Scope%20and%20Core%20Requirements.md), especially native-first Google Docs augmentation and focused v0.1 scope.
+- [REQ-002 — Referenceable Objects, Cross-References and Generated Indexes](../../docs/REQ/REQ-002%20-%20Referenceable%20Objects%20Cross-References%20and%20Generated%20Indexes.md).
+- [RES-003 — Google Docs Native Capability Matrix for v0.1 Augmentation](../../docs/RES/RES-003%20-%20Google%20Docs%20Native%20Capability%20Matrix%20for%20v0.1%20Augmentation.md).
