@@ -8,7 +8,7 @@
 
 Define the requirements for assigning stable identities to document objects, referencing them elsewhere in the same document, rendering those references correctly after structural changes, and generating analytical indexes from the set of referenceable objects.
 
-The exact Markdown syntax, internal representation, Google Docs bookmark strategy, numbering mechanism, and renderer implementation remain architectural decisions.
+Source syntax for capabilities already covered by the accepted Pandoc/Quarto baseline must follow REQ-MDE-SCP-003 and REQ-MDE-SCP-004. Detailed implementation choices — including internal representation, Google Docs bookmark strategy, numbering mechanism, and syntax for capabilities not adequately covered by Pandoc/Quarto — remain architectural decisions.
 
 ---
 
@@ -102,7 +102,7 @@ Project requirements discussion.
 
 **Notes**
 
-The exact Markdown or extension syntax is intentionally not specified by this requirement.
+For recognized object classes and cross-references, source syntax must follow the accepted Pandoc/Quarto-compatible profile defined by REQ-MDE-SCP-003 and ADR-0001. Any project-specific syntax is governed by REQ-MDE-SCP-004.
 
 **Acceptance criteria**
 
@@ -376,11 +376,10 @@ Project requirements refinement.
 
 These requirements define **what must be possible**, not how references and indexes are implemented.
 
-The following remain architectural or syntax decisions:
+The accepted Pandoc/Quarto-compatible baseline governs identifiers, attributes, and standard cross-references. The following remain architectural or syntax decisions only where the established baseline does not fully determine them:
 
-- Markdown syntax for declaring object identifiers;
-- Markdown syntax for writing cross-references;
-- whether reference metadata is expressed through attributes, directives, front matter, or another extension mechanism;
+- syntax for project-specific object classes or capabilities not adequately covered by Pandoc/Quarto;
+- metadata conventions for analytical-index queries and other project-specific semantics;
 - internal reference registry representation;
 - Google Docs bookmark/anchor implementation;
 - figure/table numbering mechanism;
