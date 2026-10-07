@@ -17,19 +17,22 @@ Examples include:
 - benchmark inputs or published comparison material;
 - other external artefacts that are useful for reproducible research.
 
-Subdirectories may be introduced when the volume justifies them, for example:
+Subdirectories should normally be organized **directly by source, organization, community, project, or publisher**, for example:
 
 ```text
 sources/
-├── official/
-├── standards/
-├── papers/
-├── community/
-├── vendors/
-└── examples/
+├── Reddit/
+├── Facebook/
+├── IDEO/
+├── IBM/
+├── Pandoc/
+├── Quarto/
+└── W3C/
 ```
 
-Do not create empty taxonomies prematurely. Add a category when real source material requires it.
+Do not add an intermediate taxonomy such as `community/`, `vendor/`, or `official/` merely to classify the source type. The source identity itself is normally sufficient, and provenance metadata can capture whether the material is official documentation, a community discussion, a standard, a paper, or another evidence type.
+
+Create a source subdirectory only when real material exists for that source.
 
 ## Relationship to RES documents
 
