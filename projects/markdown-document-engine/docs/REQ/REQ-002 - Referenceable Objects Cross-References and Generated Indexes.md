@@ -40,7 +40,6 @@ Project requirements discussion.
 The initial system must support, at minimum, the following referenceable object classes:
 
 - sections/headings;
-- paragraphs;
 - figures;
 - tables.
 
@@ -48,7 +47,7 @@ The reference model should permit additional object classes to be introduced lat
 
 **Rationale / design intent**
 
-Figures and tables are conventional cross-reference targets, but the authoring model also requires direct reference to document sections and to individual paragraphs. The model should not be artificially limited to only objects that traditionally receive captions.
+The v0.1 baseline intentionally focuses on object classes with clear structural or caption semantics. Direct references to ordinary body paragraphs or arbitrary sequential text fragments are deferred for separate exploration in ROADMAP RD-002.
 
 **Source / origin**
 
@@ -57,7 +56,6 @@ Project requirements discussion.
 **Acceptance criteria**
 
 - [ ] A heading/section can be assigned a reference identity.
-- [ ] A paragraph can be assigned a reference identity.
 - [ ] A figure can be assigned a reference identity.
 - [ ] A table can be assigned a reference identity.
 - [ ] Reference resolution uses the same conceptual mechanism across these object classes.
@@ -134,24 +132,23 @@ Project requirements discussion.
 
 ---
 
-## REQ-MDE-REF-006 — Paragraph references without mandatory visible numbering
+## REQ-MDE-REF-006 — Direct paragraph/text-fragment references
 
-**Formal requirement**
+**Status:** Deferred from v0.1 — tracked in ROADMAP RD-002
 
-The system must allow a paragraph to be referenced even when that paragraph has no visible paragraph number in the rendered document.
+**Scope decision**
+
+Direct formal references to ordinary body paragraphs or arbitrary sequential text fragments are not required by the v0.1 baseline.
 
 **Rationale / design intent**
 
-Logical identity and visible numbering are separate concerns. A paragraph may need a stable anchor for references while remaining visually indistinguishable from ordinary body text.
+The immediate product scope can cover formally referenceable textual blocks by using an already supported structural object where appropriate, including a one-cell table when the author intentionally wants a self-contained referenceable text block.
 
-**Source / origin**
+A richer paragraph/text-fragment model raises unresolved questions about selection granularity, identity persistence after split/merge edits, numbering, titles, and source syntax. Those questions should be researched before a formal design proposal is opened.
 
-Project requirements discussion.
+**Traceability**
 
-**Acceptance criteria**
-
-- [ ] A paragraph can be a valid reference target without forcing a visible number.
-- [ ] The rendering profile may determine how a reference to such a paragraph is displayed.
+This requirement ID is retained so the earlier requirement is not silently erased or reused. Future work is tracked in ROADMAP RD-002.
 
 ---
 
@@ -250,7 +247,7 @@ The system must support indexes restricted to one or more referenceable object c
 
 **Rationale / design intent**
 
-Traditional outputs such as a List of Figures and List of Tables are special cases of a more general object-indexing capability. The same model should also permit indexes of sections, paragraphs, or future referenceable object classes when useful.
+Traditional outputs such as a List of Figures and List of Tables are special cases of a more general object-indexing capability. The same model should also permit indexes of sections or future referenceable object classes when useful.
 
 **Source / origin**
 
@@ -260,7 +257,7 @@ Project requirements discussion.
 
 - [ ] A figure-only index can be generated.
 - [ ] A table-only index can be generated.
-- [ ] A paragraph-only index can be generated when configured.
+- [ ] A section-only index can be generated when configured.
 - [ ] A mixed-object index can be generated when configured.
 
 ---
@@ -366,7 +363,7 @@ The baseline index must not require authors to add a second subject-index annota
 
 **Rationale / design intent**
 
-The first useful analytical-index capability can be obtained directly from information the document already contains. Sections, paragraphs, figures, tables, and future referenceable object classes already have stable identities and renderer-derived labels. Reusing that registry avoids duplicate authoring and establishes a simple, deterministic foundation before introducing a richer concept-level subject index.
+The first useful analytical-index capability can be obtained directly from information the document already contains. Sections, figures, tables, and future referenceable object classes already have stable identities and renderer-derived labels. Reusing that registry avoids duplicate authoring and establishes a simple, deterministic foundation before introducing a richer concept-level subject index.
 
 This baseline deliberately separates **object indexing** from the later **concept indexing** problem. A logical object has one stable identity, while a subject index may eventually associate many concepts with many occurrences.
 
@@ -379,7 +376,6 @@ Project roadmap refinement following analysis of object identity versus subject-
 - [ ] The engine can generate a navigable index from referenceable objects without requiring duplicate index annotations.
 - [ ] Entries can be grouped by object class.
 - [ ] Entries can display current renderer-derived labels, numbers, titles, or captions where available.
-- [ ] Paragraph targets can appear even when they have no visible paragraph number.
 - [ ] Reordering or renumbering objects updates the generated index without changing logical identities.
 - [ ] Removed objects do not leave stale entries after recompilation.
 - [ ] The baseline does not require support for free-standing subject terms or concept hierarchies.
@@ -394,7 +390,7 @@ The system must permit more than one generated index in the same document, with 
 
 **Rationale / design intent**
 
-A document may simultaneously require a table of contents, list of figures, list of tables, paragraph/reference index, and one or more analytical indexes.
+A document may simultaneously require a table of contents, list of figures, list of tables, section/reference index, and one or more analytical indexes.
 
 **Source / origin**
 
@@ -414,7 +410,7 @@ The accepted Pandoc/Quarto-compatible baseline governs identifiers, attributes, 
 - internal reference registry representation;
 - Google Docs bookmark/anchor implementation;
 - figure/table numbering mechanism;
-- rendering syntax for paragraph references;
+- future paragraph/text-fragment reference semantics tracked in ROADMAP RD-002;
 - generated index placement and styling;
 - whether indexes are regenerated from scratch or incrementally synchronized;
 - cross-document references.
