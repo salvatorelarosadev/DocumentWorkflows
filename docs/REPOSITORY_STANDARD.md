@@ -1,7 +1,7 @@
 # Repository Organization and Engineering Standard
 
 **Status:** Draft standard under active validation  
-**Standard version:** 0.3.0-draft  
+**Standard version:** 0.4.0-draft  
 **Last updated:** 2026-10-07  
 **Scope:** DocumentWorkflows and future repositories that adopt this model
 
@@ -653,6 +653,75 @@ RES
  ↓
 RFC / EP / ADR
 ```
+
+### RES/sources/ — external evidence repository
+
+A RES area may contain a `sources/` subdirectory for external artefacts that materially support project research.
+
+Its role is to preserve the **evidence base** separately from the project's own analysis.
+
+Typical material includes:
+
+- official documentation snapshots;
+- standards and specifications;
+- public papers and reports;
+- relevant community discussions;
+- vendor or project documentation;
+- reference implementations;
+- benchmark inputs;
+- external examples.
+
+The conceptual separation is:
+
+```text
+docs/RES/
+├── RES-001 - <project research and conclusions>.md
+├── RES-002 - <project research and conclusions>.md
+└── sources/
+    ├── Reddit/
+    ├── IDEO/
+    ├── IBM/
+    ├── Pandoc/
+    └── <other source identity>/
+```
+
+A file stored under `RES/sources/` is evidence, not automatically a project conclusion, requirement, proposal, architectural choice, or accepted decision.
+
+Research documents should interpret the evidence and retain enough provenance to trace important findings back to their external sources.
+
+#### Organization by source identity
+
+The preferred convention is:
+
+```text
+RES/sources/<source-or-organization>/
+```
+
+Examples include `Reddit/`, `Facebook/`, `IDEO/`, `IBM/`, `Pandoc/`, or `Quarto/`.
+
+Do not normally insert generic intermediate layers such as `community/`, `vendor/`, or `official/`. Whether an artefact is official documentation, a community discussion, a standard, or another evidence type should be captured by provenance metadata rather than by an extra directory level.
+
+Create a source subdirectory only when real material exists for that source.
+
+#### Provenance
+
+Where practical, external sources should preserve:
+
+- title;
+- author / organization;
+- original URL or publication location;
+- publication or retrieval date;
+- version/release where relevant;
+- redistribution/license status where known;
+- why the source matters to the project.
+
+When the original artefact cannot carry this metadata, use a companion Markdown file.
+
+#### Public-repository rule
+
+Only redistribute external material when doing so is permitted.
+
+If copyright, license, access terms, confidentiality, or redistribution rights are unclear, do not copy the source artefact into a public repository. Store a bibliographic/reference note, public URL, provenance metadata, and project analysis instead.
 
 ---
 
@@ -1542,6 +1611,16 @@ The long-term goal is a reusable baseline, not forced uniformity.
 This section records the evolution of the repository standard itself.
 
 It is intentionally separate from the product `CHANGELOG.md`.
+
+## 0.4.0-draft — 2026-10-07
+
+### Added
+
+- Added `RES/sources/` as the standard location for external evidence and source artefacts supporting RES analysis.
+- Formalized the distinction between external evidence and project-authored research conclusions.
+- Standardized direct organization by source identity, for example `sources/Reddit/`, `sources/IDEO/`, or `sources/IBM/`, avoiding generic intermediate layers such as `community/`.
+- Added provenance guidance for stored external sources.
+- Added redistribution and copyright safeguards for public repositories.
 
 ## 0.3.0-draft — 2026-10-07
 
