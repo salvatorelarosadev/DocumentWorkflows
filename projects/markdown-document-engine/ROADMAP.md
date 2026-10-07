@@ -68,7 +68,6 @@ The current baseline indexes objects:
 #fig-platform
 #tbl-market-data
 #sec-wallet
-#par-wallet-rationale
 ```
 
 A future subject index must support a many-to-many model:
@@ -106,3 +105,55 @@ Open an RFC when:
 4. there is enough evidence to compare syntax and semantic models rather than speculate.
 
 If the future subject-index capability becomes a multi-phase subsystem with several dependent decisions, promote the direction into an EP instead of a single RFC.
+
+
+### RD-002 — Direct paragraph and text-fragment references
+
+**Maturity:** Exploratory  
+**Current baseline:** Sections/headings, figures, and tables in REQ-002 / REQ-004
+
+#### Objective
+
+Explore whether MDE should eventually support formal cross-references to ordinary body paragraphs or arbitrary sequential text fragments without requiring authors to wrap that content in another structural object.
+
+Possible future capabilities may include:
+
+- assigning stable logical IDs to paragraphs or selected text ranges;
+- references rendered with optional label, number, and/or short title;
+- robust identity across edits, paragraph splits/merges, moves, and copy/paste;
+- visual formalization from the context-aware Object Inspector;
+- compatible Markdown/Pandoc syntax where an established convention is adequate;
+- participation in the Object Browser and generated object indexes.
+
+#### Why this is deferred
+
+The immediate v0.1 need can be covered by the supported object model:
+
+- sections/headings for structured prose;
+- figures for images;
+- tables for tabular or deliberately boxed/formal text blocks.
+
+When an author needs a formally referenceable standalone text block in the short term, a one-cell table provides a practical Word-like workaround while remaining inside the existing table-reference model.
+
+Direct paragraph/text-fragment references introduce unresolved questions about:
+
+- target granularity;
+- numbering semantics;
+- optional titles;
+- identity stability after split/merge edits;
+- whether a selection is a paragraph object or an arbitrary text range;
+- source syntax;
+- Google Docs anchor/range persistence.
+
+#### Next decision trigger
+
+Do not open an RFC yet.
+
+Open an RFC only when:
+
+1. the v0.1 section/figure/table object model and Object Browser are stable;
+2. real use cases demonstrate material limitations of the one-cell-table workaround;
+3. research has compared established paragraph/span/range-reference approaches;
+4. there is enough evidence to compare concrete semantic and syntax alternatives.
+
+Until then, preserve this as an Exploratory Roadmap Direction rather than a proposed design.
