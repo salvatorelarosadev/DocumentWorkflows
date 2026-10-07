@@ -71,6 +71,58 @@ Project requirement refinement; see ADR-0001.
 - [ ] Custom extensions avoid unnecessary ambiguity or collision with established Pandoc/Quarto syntax.
 - [ ] If an upstream ecosystem later standardizes an equivalent capability, migration or convergence is considered.
 
+## REQ-MDE-SCP-005 — Native-first Google Docs augmentation
+
+**Formal requirement**
+
+For the Google Docs renderer, the system must reuse adequate native Google Docs semantic structures, navigation primitives, and document behaviors instead of reproducing them with custom generated content.
+
+Custom renderer logic must be introduced only when a native Google Docs capability is absent, cannot satisfy the required behavior, or cannot be controlled reliably through supported interfaces.
+
+**Rationale / design intent**
+
+The project exists to augment Google Docs, not to replace it. Native editor behavior should remain available wherever it already solves the problem adequately, reducing code, maintenance burden, rendering divergence, and user surprise.
+
+**Source / origin**
+
+Project requirement refinement following Google Docs capability review; see RES-003.
+
+**Acceptance criteria**
+
+- [ ] Markdown headings render as native Google Docs heading semantics.
+- [ ] A native Google Docs TOC is preferred when it can satisfy the required workflow.
+- [ ] Native heading links, bookmarks, named ranges, or equivalent supported primitives are reused where suitable for internal navigation and object targeting.
+- [ ] Custom behavior is limited to documented capability gaps or reliability constraints.
+- [ ] The renderer does not create parallel proprietary structures merely to reproduce an adequate native Google Docs feature.
+
+## REQ-MDE-SCP-006 — Focused v0.1 augmentation scope
+
+**Formal requirement**
+
+The initial Google Docs augmentation scope must focus on the document-structure capabilities required for:
+
+1. reliable heading hierarchy as the basis of document structure;
+2. a usable table-of-contents workflow;
+3. robust hierarchical heading numbering comparable in behavior to structured Word/LaTeX-style numbering;
+4. stable internal targets and navigation required by references and generated indexes;
+5. generated object-based analytical indexes as defined in REQ-002.
+
+Google Docs capability gaps outside this scope must not be implemented in v0.1 unless they are a direct prerequisite for one of these target capabilities.
+
+**Rationale / design intent**
+
+The first release should solve the project's concrete structural-document problems rather than evolve into a general-purpose replacement for Google Docs or Microsoft Word.
+
+**Source / origin**
+
+Project scope refinement following Google Docs native-capability review.
+
+**Acceptance criteria**
+
+- [ ] v0.1 planning explicitly maps work to one of the five target capabilities above or to a documented prerequisite.
+- [ ] Native Google Docs features outside the target scope are not reimplemented merely because limitations exist.
+- [ ] Deferred capability gaps remain visible as research or roadmap items only when strategically relevant.
+
 ## REQ-MDE-STR-001 — Hierarchical headings
 
 **Formal requirement**
@@ -125,11 +177,24 @@ This provides Word/LaTeX-like numbering while keeping source independent from pr
 
 **Formal requirement**
 
-The rendered Google document must support a usable table-of-contents workflow based on heading hierarchy.
+The rendered Google document must support a usable table-of-contents workflow based on native Google Docs heading hierarchy.
+
+The renderer must prefer the native Google Docs table of contents when it can satisfy the required navigation, refresh, and operational workflow. A custom-generated TOC may be used only when the native mechanism cannot satisfy a documented requirement or cannot be controlled reliably through supported interfaces.
 
 **Rationale / design intent**
 
-A reliable TOC is part of the immediate structured-document requirement. Native vs generated TOC remains an architectural decision.
+Google Docs already provides heading-based TOC generation and navigation. MDE should augment this workflow only where automation or reliability gaps require it rather than maintaining a competing TOC model.
+
+**Source / origin**
+
+Project requirement refinement following Google Docs capability review; see RES-003.
+
+**Acceptance criteria**
+
+- [ ] TOC entries derive from native heading semantics.
+- [ ] Native Google Docs TOC behavior is the default target.
+- [ ] Any custom TOC implementation documents the specific native limitation that makes it necessary.
+- [ ] Recompilation does not create competing or duplicate TOCs.
 
 ## REQ-MDE-NFR-001 — Repeatability
 
