@@ -13,10 +13,17 @@
 - Referenceable-object and cross-reference requirements added for sections/headings, paragraphs, figures, and tables.
 - Generated index requirements added, including object-class indexes and metadata-based analytical indexes.
 - Stable logical identity separated from rendered numbering/position.
+- Established Markdown extension ecosystems reviewed (Pandoc, Quarto, MyST).
+- Pandoc/Quarto-compatible authoring syntax adopted in ADR-0001:
+  - Pandoc attributes for IDs/classes/metadata;
+  - Quarto typed prefixes and `@...` cross-references for standard object classes;
+  - Pandoc/Quarto fenced Divs for richer semantic blocks;
+  - Pandoc-style paragraph anchors plus internal links for paragraph references.
 - Initial conceptual pipeline documented.
 - Renderer-independent IR identified as an open design question, not an accepted decision.
 
 ## In progress
+- Refine the exact Pandoc/Quarto subset supported in v0.1.
 - Refine Markdown authoring and compilation workflow requirements.
 - Define editorial style-profile requirements.
 - Define acceptance criteria for headings, numbering, TOC, lists, links, tables, figures, captions, references, indexes, and formatting.
@@ -35,11 +42,11 @@
 ## Open decisions
 - Pure Apps Script vs external compiler + Apps Script renderer vs hybrid.
 - Native Google Docs TOC vs engine-generated TOC.
-- Exact Markdown subset for v0.1.
-- Markdown extension syntax for stable IDs, cross-references, figures, tables, and analytical-index metadata.
+- Exact supported Pandoc/Quarto feature subset for v0.1.
+- Syntax and semantics for analytical-index declarations and metadata queries.
 - Whether v0.1 requires a formal intermediate representation.
 - How referenceable objects map to Google Docs bookmarks/anchors.
-- How paragraph references should render when paragraphs have no visible numbering.
+- How paragraph references should render when paragraphs have no visible numbering and no explicit link text.
 - Whether generated indexes are rebuilt or incrementally synchronized.
 - Cross-document references (not currently in v0.1 baseline).
 
