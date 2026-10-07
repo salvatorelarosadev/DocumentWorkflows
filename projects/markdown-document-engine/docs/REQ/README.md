@@ -8,6 +8,21 @@ Requirements use:
 - stable IDs prefixed `REQ-MDE-`.
 
 Current baseline:
-- [REQ-001 - Scope and Core Requirements.md](REQ-001%20-%20Scope%20and%20Core%20Requirements.md)
+- [REQ-001 - Scope and Core Requirements.md](REQ-001%20-%20Scope%20and%20Core%20Requirements.md) — scope, Markdown source, heading hierarchy, numbering, Google Docs target, TOC, repeatability, public-safe configuration, extensibility.
+- [REQ-002 - Referenceable Objects Cross-References and Generated Indexes.md](REQ-002%20-%20Referenceable%20Objects%20Cross-References%20and%20Generated%20Indexes.md) — stable object identity, paragraph/section/figure/table references, cross-reference integrity, generated indexes, lists of figures/tables, analytical indexes.
 
 Do not introduce architecture decisions into requirements unless a specific implementation constraint is itself approved as a requirement.
+
+## Current requirement domains
+
+| Prefix | Domain |
+|---|---|
+| `REQ-MDE-SCP-*` | Project scope and source model |
+| `REQ-MDE-STR-*` | Document structure |
+| `REQ-MDE-GDOC-*` | Google Docs rendering requirements |
+| `REQ-MDE-NFR-*` | Non-functional requirements |
+| `REQ-MDE-EXT-*` | Extensibility |
+| `REQ-MDE-REF-*` | Referenceable objects, anchors, and cross-references |
+| `REQ-MDE-IDX-*` | Generated and analytical indexes |
+
+Further requirement documents are expected for authoring/compilation workflow, editorial formatting, validation/diagnostics, and additional non-functional behavior as the baseline is refined.
