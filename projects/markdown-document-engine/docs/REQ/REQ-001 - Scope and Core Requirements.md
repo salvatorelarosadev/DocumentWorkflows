@@ -28,6 +28,49 @@ The system must keep document semantics and hierarchy conceptually separate from
 
 The source should describe what content is, while renderers decide how that structure is presented.
 
+## REQ-MDE-SCP-003 — Established Markdown ecosystem compatibility
+
+**Formal requirement**
+
+The system must use established Pandoc Markdown conventions as the baseline for extended Markdown syntax and must use established Quarto conventions for typed document objects and cross-references when those conventions adequately represent the required semantics.
+
+**Rationale / design intent**
+
+The project is intentionally non-autarchic. It should build on mature, widely used document-authoring ecosystems rather than create a proprietary Markdown dialect for capabilities that Pandoc or Quarto already express well. This reduces learning cost, improves interoperability, makes source documents more recognizable to developers and authors, and preserves compatibility with existing tooling and future renderers.
+
+**Source / origin**
+
+Project requirement refinement following evaluation of Pandoc, Quarto, and MyST; see RES-001 and ADR-0001.
+
+**Acceptance criteria**
+
+- [ ] Stable IDs and generic attributes use Pandoc-compatible syntax where applicable.
+- [ ] Standard typed objects such as sections, figures, tables, equations, and listings use Quarto-compatible identifier and cross-reference conventions where applicable.
+- [ ] A source document using only supported baseline features does not require proprietary syntax when an equivalent Pandoc/Quarto notation exists.
+- [ ] Project documentation clearly identifies the supported Pandoc/Quarto profile and any deliberate deviations.
+
+## REQ-MDE-SCP-004 — Custom syntax as an exception
+
+**Formal requirement**
+
+The project must introduce custom Markdown syntax only when the required semantic capability cannot be represented adequately by an established Pandoc or Quarto convention, or when a documented compatibility, usability, or implementation constraint justifies a deviation.
+
+**Rationale / design intent**
+
+Custom syntax creates long-term parser, migration, interoperability, documentation, and contributor costs. Extensions should therefore fill genuine gaps rather than duplicate established ecosystem behavior.
+
+**Source / origin**
+
+Project requirement refinement; see ADR-0001.
+
+**Acceptance criteria**
+
+- [ ] Every custom syntax extension documents the gap it addresses.
+- [ ] Relevant Pandoc/Quarto alternatives are considered before a custom notation is accepted.
+- [ ] Significant custom syntax additions are reviewed through RFC/ADR as appropriate.
+- [ ] Custom extensions avoid unnecessary ambiguity or collision with established Pandoc/Quarto syntax.
+- [ ] If an upstream ecosystem later standardizes an equivalent capability, migration or convergence is considered.
+
 ## REQ-MDE-STR-001 — Hierarchical headings
 
 **Formal requirement**
