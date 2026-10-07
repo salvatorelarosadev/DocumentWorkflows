@@ -1,6 +1,6 @@
 # Google Docs Structural Spike 001
 
-**Status:** Lab prototype  
+**Status:** Validated lab prototype — manual test passed  
 **Scope:** active Google Docs tab only  
 **Runtime:** Google Apps Script, V8  
 **Source of truth:** this repository
@@ -35,6 +35,7 @@ Apps Script is the experimental runtime, not an accepted product architecture.
 
 - `Code.gs` — bound Google Docs Apps Script prototype.
 - `MANUAL_TEST.md` — exact manual test procedure and expected results.
+- `RESULT.md` — recorded outcome and implications after successful manual execution.
 
 ## Installation
 
@@ -114,6 +115,10 @@ Modern Google Docs can contain multiple tabs. This spike intentionally operates 
 ### Native TOC is manual in this spike
 
 The test deliberately does not generate a custom TOC. Insert a native Google Docs TOC manually and use the manual test to determine how well it cooperates with generated heading numbers.
+
+## Validation result
+
+The complete manual test was executed successfully on 2026-10-07. All planned checks passed. See [`RESULT.md`](RESULT.md) for the recorded evidence and implications.
 
 ## Exit criteria
 
