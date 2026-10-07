@@ -14,6 +14,7 @@
 - Generated index requirements added, including object-class indexes and metadata-based analytical indexes.
 - Stable logical identity separated from rendered numbering/position.
 - Established Markdown extension ecosystems reviewed (Pandoc, Quarto, MyST).
+- Pandoc/Quarto ecosystem compatibility is now a formal requirement, not only an architectural convention.
 - Pandoc/Quarto-compatible authoring syntax adopted in ADR-0001:
   - Pandoc attributes for IDs/classes/metadata;
   - Quarto typed prefixes and `@...` cross-references for standard object classes;
