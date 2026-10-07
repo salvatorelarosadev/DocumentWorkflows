@@ -33,15 +33,16 @@
 - Define only the renderer/style requirements directly needed by the focused v0.1 structural scope.
 - Define acceptance criteria for headings, hierarchical numbering, TOC, internal targets/references, and object-based indexes.
 - Investigate Google Docs / Apps Script capabilities and constraints for headings, bookmarks/anchors, TOC, references, and generated indexes.
-- Decide the minimal implementation architecture for the first prototype.
+- Execute Google Docs Structural Spike 001 and record empirical results for heading numbering, native TOC behavior, and native-backed targets.
 
 ## Next actions
 1. Define REQ-003 for Markdown authoring and compilation workflow.
 2. Define REQ-004 for Google Docs rendering and editorial formatting.
 3. Define validation/diagnostics requirements, including structural and cross-reference validation.
-4. Build a targeted lab prototype to validate native heading numbering, native TOC behavior/automation, and native-backed internal targets.
-5. Review RFC-001 on a renderer-independent intermediate representation only as needed by the focused prototype.
-6. Add fixture-based tests before promoting code into `src/`.
+4. Run `lab/google-docs-structural-spike-001/MANUAL_TEST.md` against a disposable Google Doc.
+5. Record the observed results and use them to decide the next spike: TOC automation, Markdown parsing, or object-index generation.
+6. Review RFC-001 on a renderer-independent intermediate representation only as needed by the evidence.
+7. Add fixture-based tests before promoting code into `src/`.
 
 ## Open decisions
 - Pure Apps Script vs external compiler + Apps Script renderer vs hybrid.
