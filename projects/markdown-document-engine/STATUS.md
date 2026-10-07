@@ -28,24 +28,26 @@
 - Renderer-independent IR identified as an open design question, not an accepted decision.
 - Google Docs Structural Spike 001 manually validated with all planned checks passing: native heading semantics, hierarchical numbering, idempotence, native TOC compatibility/navigation, hierarchy validation, and NamedRange/Bookmark target persistence.
 - REQ-003 — Heading Numbering Workflow drafted for one-shot numbering, automatic ON/OFF reconciliation, removal behavior, and English UI.
+- REQ-004 — Reference Object Interaction and Cross-Reference Insertion drafted for the context-aware Object Inspector, formal objects, captions, managed labels, reference rendering modes, Object Browser, and multi-reference insertion.
+- RES-004 documents the reference UX baseline from Microsoft Word, Quarto, Sphinx, and LaTeX cleveref.
 
 ## In progress
 - Refine the exact Pandoc/Quarto subset supported in v0.1.
 - Refine Markdown authoring and compilation workflow requirements.
 - Define only the renderer/style requirements directly needed by the focused v0.1 structural scope.
-- Define acceptance criteria for headings, hierarchical numbering, TOC, internal targets/references, and object-based indexes.
+- Refine acceptance criteria for headings, hierarchical numbering, TOC, formal reference objects, Object Inspector/Browser interactions, and object-based indexes.
 - Investigate Google Docs / Apps Script capabilities and constraints for headings, bookmarks/anchors, TOC, references, and generated indexes.
 - Validate Live Numbering Spike 001b: one-shot numbering plus automatic reconciliation ON/OFF with an English Google Docs UI.
 
 ## Next actions
 1. Run `lab/google-docs-live-numbering-spike-001b/MANUAL_TEST.md`.
 2. Record the live-numbering evidence and refine REQ-003 if needed.
-3. Define the broader Markdown authoring/compilation workflow requirements after the numbering interaction is validated.
-4. Build Structural Spike 002: minimal Pandoc/Quarto-compatible Markdown headings + stable IDs → native Google Docs headings + hierarchical numbering + target mapping.
-5. Keep native TOC insertion/refresh native-first and automate only where the workflow requires it.
-6. After Spike 002, prototype the first object-based analytical index from the semantic object registry.
-7. Review RFC-001 only as required by experimental evidence.
-8. Add fixture-based tests before promoting code into `src/`.
+3. Prototype the context-aware Object Inspector for section, paragraph, table, and inline-image selections.
+4. Prototype formalization of table/figure objects with mandatory unique IDs and caption metadata.
+5. Prototype the Object Browser with type filters, search, multi-selection, and insertion at a preserved cursor location.
+6. Build the minimal Pandoc/Quarto-compatible Markdown → native Google Docs structural compilation path using the same object model.
+7. Prototype the first object-based analytical index from the semantic object registry.
+8. Review RFC-001 only as required by experimental evidence and add fixture-based tests before promoting code into `src/`.
 
 ## Open decisions
 - Pure Apps Script vs external compiler + Apps Script renderer vs hybrid.
