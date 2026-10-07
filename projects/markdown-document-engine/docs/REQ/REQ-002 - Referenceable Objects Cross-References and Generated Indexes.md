@@ -265,23 +265,23 @@ Project requirements discussion.
 
 ---
 
-## REQ-MDE-IDX-003 — Metadata-based analytical indexes
+## REQ-MDE-IDX-003 — Metadata-based object indexes
 
 **Formal requirement**
 
-The system should allow generated indexes to select, group, or label referenceable objects using semantic metadata in addition to object class.
+The system should allow generated object indexes to select, group, sort, or label referenceable objects using semantic metadata attached to those objects in addition to object class.
 
 **Rationale / design intent**
 
-An analytical index may need to represent meaningful subsets or categories of document objects rather than merely reproducing all figures or all tables.
+The initial indexing baseline remains object-centric: index entries are generated from the registry of explicitly referenceable document objects. Metadata may make those indexes more useful without yet introducing an independent subject/concept indexing model.
 
 **Source / origin**
 
-Project requirements discussion.
+Project requirements discussion and roadmap refinement.
 
 **Notes**
 
-The metadata schema and authoring syntax remain open design questions.
+This requirement does not yet require free-standing subject terms, many-to-many concept-to-occurrence mappings, hierarchical subject vocabularies, or `see` / `see also` semantics. Those capabilities are tracked as a prospective roadmap direction and research topic.
 
 ---
 
@@ -356,6 +356,36 @@ Extension of REQ-MDE-NFR-001.
 
 ---
 
+## REQ-MDE-IDX-009 — Baseline referenceable-object analytical index
+
+**Formal requirement**
+
+The v0.1 baseline must support a generated analytical index whose entries are derived exclusively from the registry of referenceable document objects and their existing identity, class, label/title/caption, position, and object metadata.
+
+The baseline index must not require authors to add a second subject-index annotation merely to make an already referenceable object appear in the object index.
+
+**Rationale / design intent**
+
+The first useful analytical-index capability can be obtained directly from information the document already contains. Sections, paragraphs, figures, tables, and future referenceable object classes already have stable identities and renderer-derived labels. Reusing that registry avoids duplicate authoring and establishes a simple, deterministic foundation before introducing a richer concept-level subject index.
+
+This baseline deliberately separates **object indexing** from the later **concept indexing** problem. A logical object has one stable identity, while a subject index may eventually associate many concepts with many occurrences.
+
+**Source / origin**
+
+Project roadmap refinement following analysis of object identity versus subject-index semantics.
+
+**Acceptance criteria**
+
+- [ ] The engine can generate a navigable index from referenceable objects without requiring duplicate index annotations.
+- [ ] Entries can be grouped by object class.
+- [ ] Entries can display current renderer-derived labels, numbers, titles, or captions where available.
+- [ ] Paragraph targets can appear even when they have no visible paragraph number.
+- [ ] Reordering or renumbering objects updates the generated index without changing logical identities.
+- [ ] Removed objects do not leave stale entries after recompilation.
+- [ ] The baseline does not require support for free-standing subject terms or concept hierarchies.
+
+---
+
 ## REQ-MDE-IDX-008 — Multiple indexes in one document
 
 **Formal requirement**
@@ -379,7 +409,8 @@ These requirements define **what must be possible**, not how references and inde
 The accepted Pandoc/Quarto-compatible baseline governs identifiers, attributes, and standard cross-references. The following remain architectural or syntax decisions only where the established baseline does not fully determine them:
 
 - syntax for project-specific object classes or capabilities not adequately covered by Pandoc/Quarto;
-- metadata conventions for analytical-index queries and other project-specific semantics;
+- metadata conventions for object-index filtering/grouping beyond the accepted Pandoc/Quarto baseline;
+- future subject/concept-index syntax and semantics beyond the v0.1 object-index baseline;
 - internal reference registry representation;
 - Google Docs bookmark/anchor implementation;
 - figure/table numbering mechanism;
